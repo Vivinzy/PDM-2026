@@ -1,66 +1,34 @@
-// Criar um app que gere na tela um número aleatório de 1 a 10.
-// Dica: import 'dart.math';
-// O que devem fazer 
-// - Criar variavel numero
-// - Criar função sortear()
-// - usar setState
-// - exibir na tela 
-
-
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(home: PaginaContador()));
+  runApp(MaterialApp(home: PaginaNumero()));
 }
 
-class PaginaContador extends StatefulWidget{
+class PaginaNumero extends StatefulWidget{
   @override
-  _PaginaContadorState createState() => _PaginaContadorState();
+  _PaginaNumeroState createState() => _PaginaNumeroState();
 }
 
-class _PaginaContadorState extends State<PaginaContador>{
- int contador = 0; 
+class _PaginaNumeroState extends State<PaginaNumero>{
+ int numero = 0; 
 
- void increment(){
+ void sortear(){
   setState(() {
-    contador++;
-  });
- }
-  void decrement(){
-  setState(() {
-    contador--;
-  });
- }
- void reset(){
-  setState(() {
-    contador = 0;
+    numero = (DateTime.now().millisecondsSinceEpoch % 10) + 1;
   });
  }
  @override
   Widget build(BuildContext context){
   return Scaffold(
-    appBar: AppBar(title: Text('Meu App Interativo')),
+    appBar: AppBar(title: Text('Sorteio de Número')),
     body: Center (
-      child: Text("Cliques: $contador", style: TextStyle(fontSize: 30),
+      child: Text("Número sorteado: $numero", style: TextStyle(fontSize: 30),
       ),
     ),
     //Center
-      floatingActionButton: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          FloatingActionButton(
-            onPressed: increment,
-            child: Icon(Icons.add),
-          ),
-          SizedBox(height: 10),
-          FloatingActionButton(onPressed: decrement,
-            child: Icon(Icons.remove),
-          ),
-          SizedBox(height: 10),
-          FloatingActionButton(onPressed: reset,
-            child: Icon(Icons.refresh),
-          )
-        ],
+      floatingActionButton: FloatingActionButton(
+        onPressed: sortear,
+        child: Icon(Icons.casino),
       ),
   );
   }
