@@ -5,6 +5,8 @@ void main() {
 }
 
 class PaginaContador extends StatefulWidget{
+  const PaginaContador({super.key});
+
   @override
   _PaginaContadorState createState() => _PaginaContadorState();
 }

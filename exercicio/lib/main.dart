@@ -74,7 +74,7 @@ class _TodoPageState extends State<TodoPage> {
                       setState(() {
                         todoList.removeAt(index);
                       });
-                      print(todoList);
+                      //print(todoList);
                     },
                   ),
                 ),
@@ -90,11 +90,11 @@ class _TodoPageState extends State<TodoPage> {
   todoList.add(controller.text);
   });
   }
-  void removerTarefa(int index) {
-  setState(() {
-  todoList.removeAt(index);
-  });
-  }
+  //void removerTarefa(int index) {
+  //setState(() {
+ // todoList.removeAt(index);
+  //});
+ // }
   // O que acontece se remover o setState? 
   // Se o setState for removido, a interface do usuário não será atualizada para refletir a nova tarefa adicionada à lista
   //O que deve ser usado para limpar o campo? controller.clear()
