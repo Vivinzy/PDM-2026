@@ -1826,7 +1826,7 @@ class _MovimentacoesScreenState extends State<MovimentacoesScreen> {
                   const Text('Nota', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
                   const SizedBox(height: 6),
                   SizedBox(width: 200, child: DropdownButtonFormField<String>(
-                    value: _nota.isEmpty ? null,
+                    value: _nota.isEmpty ? null : _nota,
                     hint: const Text('Selecione uma categoria'),
                     items: ['Compras', 'Vendas', 'Ajuste', 'Devolução', 'Outros'].map((i) => DropdownMenuItem(value: i, child: Text(i))).toList(),
                     onChanged: (v) => setState(() => _nota = v ?? ''),
@@ -1841,7 +1841,7 @@ class _MovimentacoesScreenState extends State<MovimentacoesScreen> {
                   const Text('Produto', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
                   const SizedBox(height: 6),
                   DropdownButtonFormField<String>(
-                    value: _produtoId.isEmpty ? null,
+                    value: _produtoId.isEmpty ? null : _produtoId,
                     hint: const Text('Buscar por código'),
                     items: AppState.produtos.map((p) => DropdownMenuItem(value: p.id, child: Text('${p.codigo} - ${p.nome}', overflow: TextOverflow.ellipsis))).toList(),
                     onChanged: (v) => setState(() => _produtoId = v ?? ''),
